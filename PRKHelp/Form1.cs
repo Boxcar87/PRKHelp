@@ -26,8 +26,6 @@ namespace PRKHelp
             }
             else
                 folderPathText.Text = "";
-            FileInfo fileInfo = new FileInfo(LogFilePath);
-            FileSize = fileInfo.Length;
         }
         private void GetLogFile(object sender, EventArgs e)
         {
@@ -71,6 +69,9 @@ namespace PRKHelp
             Timers = new(LogFilePath);
             //Watcher.Path = LogFilePath[..^8];
             //Watcher.Changed += (sender, e) => ScriptManager.RouteCommand(LogFilePath);
+
+            FileInfo fileInfo = new FileInfo(LogFilePath);
+            FileSize = fileInfo.Length;
 
             using (var fileStream = new FileStream(LogFilePath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite))
             {

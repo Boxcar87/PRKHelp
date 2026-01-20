@@ -20,7 +20,6 @@ namespace PRKHelp
         }
         public string CreateTimer(string name, string duration)
         {
-            Debug.WriteLine("timerEntry");
             long durationLimit = 2 * 3600000; // Do you want a limit?
             duration = duration.Trim(' ');
             long totalDuration = 0;
@@ -86,7 +85,6 @@ namespace PRKHelp
 
         public string GetTimers()
         {
-            Debug.WriteLine("getTimers");
             string highlightColor = "#FFFF00";
             string alertColor = "#FF0000";
             string textColor = "#FFFFFF";

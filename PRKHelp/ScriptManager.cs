@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Reflection.Metadata;
-using System.Diagnostics;
 
 namespace PRKHelp
 {
@@ -76,12 +75,10 @@ namespace PRKHelp
                                 return;
                         }
                         //File.WriteAllText(ScriptOutputFile, response);
-                        Debug.WriteLine(ScriptOutputFile);
                         using (FileStream scriptStream = new(ScriptOutputFile, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
                         {
                             using (StreamWriter scriptWriter = new(scriptStream))
                             {
-                                Debug.WriteLine("writing");
                                 scriptStream.SetLength(0);
                                 scriptWriter.Write(response);
                             }

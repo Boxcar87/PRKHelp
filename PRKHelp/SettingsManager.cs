@@ -18,6 +18,8 @@ namespace PRKHelp
 
             if (!File.Exists(Path.Combine(Settings, SettingsFile)))
             {
+                string newFileString = JsonSerializer.Serialize(new PathSettings(), new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(Path.Combine(Settings, SettingsFile), newFileString);
                 return "";
             }
 
