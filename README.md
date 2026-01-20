@@ -1,4 +1,4 @@
-You can build the solution yourself or download the zipped executable on the right under (Releases)[https://github.com/Boxcar87/PRKHelp/releases/latest]
+You can build the solution yourself or download the zipped executable on the right under [Releases](https://github.com/Boxcar87/PRKHelp/releases/latest)
 
 Step 1: Create a new chat window in Anarchy online and enable Vicinity messages to it (Shift+C)
 
