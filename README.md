@@ -18,15 +18,20 @@ Step 7: Use commands as show below
 
 
 
-/calc 1+1
+### /calc 1+1
+<img width="199" height="54" alt="{B0E3934B-530F-4BAE-ABFC-6473C3218D79}" src="https://github.com/user-attachments/assets/4e02baae-c48b-4f86-8f5e-7117cae2d381" />
 
-/oe 200
+### /oe 200
+<img width="449" height="368" alt="{35E75D43-842B-4CDE-8B53-8CC90F082D61}" src="https://github.com/user-attachments/assets/78d8023b-d9dc-4cf7-a45d-fc3d6d320089" />
 
-/mafist
+### /mafist
+<img width="450" height="367" alt="{B474A5BC-3DB7-4CC7-A3A8-2A2505B09CB8}" src="https://github.com/user-attachments/assets/d7023059-d7d9-42b5-9fad-1a5daafedd6c" />
 
-/timer Name 1h20m30s
+### /timer Name 1h20m30s
+<img width="261" height="88" alt="{11E62725-777F-4A7E-970D-662D37BD6B61}" src="https://github.com/user-attachments/assets/56dea518-e072-49d0-9026-60023d613eda" />
 
-/timers
+### /timers
+<img width="452" height="403" alt="{0CA619F7-3C77-4A19-9C04-B8F686BE95EF}" src="https://github.com/user-attachments/assets/6c900886-f427-4d05-9eb1-88862db7861f" />
 
 
 
