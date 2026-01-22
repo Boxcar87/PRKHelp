@@ -7,16 +7,15 @@
         public static void Init(string _scriptsFolderPath)
         {
             ScriptOutputFile = Path.Combine(_scriptsFolderPath, "PRKHelp");
-            using (FileStream scriptStream = new(ScriptOutputFile, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-            {
-            }
+            // Generate Script file if it doesnt exist
+            using (FileStream scriptStream = new(ScriptOutputFile, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite)) {}
 
             GenerateInterfaceScripts(_scriptsFolderPath);
         }
 
         public static void WriteOutput(List<string> _output)
         {
-            // Populate script file with output
+            // Populate script file with output in paginated form
             for (var i = 0; i < _output.Count; i++)
             {
                 string _outputIndexString = ScriptOutputFile.ToString();
@@ -29,6 +28,8 @@
                     {
                         scriptStream.SetLength(0); 
                         scriptWriter.Write($"{_output[i]}");
+                        
+                        // Create new page references as needed
                         if(_output.Count > 1 && _output.Count > i + 1)
                         {
                             scriptWriter.Write($"\n/PRKHELP{i + 1}");
