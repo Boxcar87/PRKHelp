@@ -114,7 +114,7 @@ namespace PRKHelp
             if (hasContent) 
                 using (FileStream fileStream = new(LogFilePath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) {}
 
-            await Task.Delay(500);
+            await Task.Delay(250);
             Run();
         }
     }

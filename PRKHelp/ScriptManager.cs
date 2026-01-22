@@ -3,6 +3,7 @@
     internal class ScriptManager
     {
         static string ScriptOutputFile;
+        static int ExecutionDelay = 1500;
 
         public static void Init(string _scriptsFolderPath)
         {
@@ -41,12 +42,12 @@
 
         private static void GenerateInterfaceScripts(string _scriptsFolderPath)
         {
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "calc"), "/w !calc %1\n/delay 1500\n/PRKHelp");
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "oe"), "/w !oe %1\n/delay 1500\n/PRKHelp");
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "mafist"), "/w !mafist %1\n/delay 1500\n/PRKHelp");
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "timer"), "/w !timer %1 %2\n/delay 1500\n/PRKHelp");
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "timers"), "/w !timers\n/delay 1500\n/PRKHelp");
-            File.WriteAllText(Path.Combine(_scriptsFolderPath, "itemfind"), "/w !itemfind %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay 1500\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "calc"), $"/w !calc %1\n/delay {ExecutionDelay}\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "oe"), $"/w !oe %1\n/delay {ExecutionDelay}\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "mafist"), $"/w !mafist %1\n/delay {ExecutionDelay}\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "timer"), $"/w !timer %1 %2\n/delay {ExecutionDelay}\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "timers"), $"/w !timers\n/delay {ExecutionDelay}\n/PRKHelp");
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "itemfind"), $"/w !itemfind %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp");
         }
     }
 }
