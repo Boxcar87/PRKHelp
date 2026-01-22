@@ -23,6 +23,8 @@ You will have to select a new log file for each new character every time you ope
 
 Path settings will persist otherwise
 
+### /itemfind (ql_ item name
+<img width="462" height="606" alt="{06F933A9-769E-4821-98D4-CAD4E2EC96B3}" src="https://github.com/user-attachments/assets/4077765a-a390-423d-8f0a-165b152594ab" />
 
 ### /calc 1+1
 <img width="199" height="54" alt="{B0E3934B-530F-4BAE-ABFC-6473C3218D79}" src="https://github.com/user-attachments/assets/4e02baae-c48b-4f86-8f5e-7117cae2d381" />
