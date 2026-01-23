@@ -1,10 +1,19 @@
 ﻿
 namespace PRKHelp.Components
 {
-    public class ComponentTemplate : Component
+    public class Template : Component
     {
+        //string TextColor
+        //string ValueColor
+        //string HighlightColor
+        //string RedColor
+        //string EndColor
+        //string Indent
+
+        //List<Type> ParamTypes
+
         //List<string> OutputStrings; // Inherited object retrieved for response by Route()
-        public ComponentTemplate(/*DB _db*/) // Pass DB reference in from route if needed
+        public Template(/*DB _db*/) // Pass DB reference in from route if needed
         {
             // Base class will perform basic validation on params
             ParamSyntax = "/template 123 string";
@@ -12,20 +21,20 @@ namespace PRKHelp.Components
             ParamTypes.Add(typeof(string));
         }
 
-        // If you have variable inputs you can override Validate params, this is the basic param validation function
-        //public override (int, string) ValidateParams(string[] _params)
-        //{
-        //    return base.ValidateParams(_params);
-        //}
+        // If you have variable inputs you can override ValidateParams, otherwise this performs basic param validation
+        public override (int, string) ValidateParams(string[] _params)
+        {
+            return SpecificParamChecks(_params);
+        }
 
         // Use this function override to append additional param checks if needed
-        //public override (int, string) SpecificParamChecks(string[] _params)
-        //{
-        //    int statusCode = -1; // -1 for error 1 for success
-        //    string statusMessage = "invalid params";
+        public override (int, string) SpecificParamChecks(string[] _params)
+        {
+            int statusCode = -1; // -1 for error 1 for success
+            string statusMessage = "invalid params";
 
-        //    return (statusCode, statusMessage);
-        //}
+            return (statusCode, statusMessage);
+        }
 
         // Perform function logic here
         public override int Process(string[] _params)

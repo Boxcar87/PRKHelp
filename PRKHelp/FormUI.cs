@@ -71,7 +71,7 @@ namespace PRKHelp
         }
 
         // Called from UI button
-        private void StartWatching(object sender, EventArgs e)
+        private void Start(object sender, EventArgs e)
         {
             // Clear File contents
             using (FileStream fileStream = new(LogFilePath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) {}
@@ -79,43 +79,9 @@ namespace PRKHelp
             ScriptManager.Init(ScriptsFolderPath);
             this.Size = new Size(Width, 280);
             runningText.Visible = true;
-            Run();
-        }
 
-        async static Task Run()
-        {
-            bool hasContent = false;
-            using (FileStream fileStream = new(LogFilePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
-            {
-                if (fileStream.Length > 0)
-                {
-                    hasContent = true;
-                    using (StreamReader reader = new(fileStream))
-                    {
-                        string rawText = reader.ReadToEnd();
-
-                        if (rawText.Length < 1)
-                            return;
-
-                        string[] filtering = rawText.Split(']');
-                        string command = filtering[1];
-
-                        if (command[0].ToString().Equals("!"))
-                        {
-                            command = command.Trim('\n');
-                            command = command.Trim(' ');
-                            Route.Handle(command[1..]);
-                        }
-                    }
-                }
-            }
-
-            // Clear log file contents
-            if (hasContent) 
-                using (FileStream fileStream = new(LogFilePath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) {}
-
-            await Task.Delay(250);
-            Run();
+            // Start watching logfile
+            InputController.Run(LogFilePath);
         }
     }
 }

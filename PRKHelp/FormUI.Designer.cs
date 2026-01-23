@@ -67,9 +67,9 @@ namespace PRKHelp
             confirmBtn.Name = "confirmBtn";
             confirmBtn.Size = new Size(107, 34);
             confirmBtn.TabIndex = 3;
-            confirmBtn.Text = "Confirm";
+            confirmBtn.Text = "Start";
             confirmBtn.UseVisualStyleBackColor = true;
-            confirmBtn.Click += StartWatching;
+            confirmBtn.Click += Start;
             // 
             // richTextBox1
             // 
@@ -132,7 +132,7 @@ namespace PRKHelp
             runningText.TextAlign = ContentAlignment.TopCenter;
             runningText.Visible = false;
             // 
-            // Form1
+            // FormUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -146,7 +146,7 @@ namespace PRKHelp
             Controls.Add(confirmBtn);
             Controls.Add(folderPathText);
             Controls.Add(getPathBtn);
-            Name = "Form1";
+            Name = "FormUI";
             Text = "PRKHelp";
             ResumeLayout(false);
             PerformLayout();

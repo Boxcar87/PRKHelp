@@ -12,13 +12,17 @@
             ParamSyntax = $"/trickle stat amount stat amount stat amount";
             StatValues = CreateEmptyStatValues();
         }
+
+        // Overriding due to drastic variance in inputs
         public override (int, string) ValidateParams(string[] _params)
         {
+            // Accepts up to 9 elements in _params, removing unused ones
             _params = _params.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
             if (_params.Length > 8)
                 return (-1, $"Error. Can only input 4 Stats at a maximum");
 
+            // Params should come in key value pairs
             if (_params.Length == 0 || _params.Length % 2 != 0)
                 return (-1, $"Error. Wrong input amount. Check your inputs, should match {ParamSyntax}");
 
@@ -26,6 +30,7 @@
             {
                 if (i % 2 != 0)
                 {
+                    // Convert abbreviations to full name
                     string cleanParam = ParseParam(_params[i-1]);
                     if (!StatValues.ContainsKey(cleanParam))
                         return (-1, $"Error. Invalid stat. Check your inputs, should match {ParamSyntax}");
@@ -57,17 +62,19 @@
                 StatValues["sense"],
             };
             Dictionary<string, Dictionary<string, float>> trickleValues = GetTrickleAmounts(values);
-
-
-            // Map results into readable window style text
+                   
             string superIndent = $"                                                  ";
             string paramsString = String.Join(" ", _params);
-            
-            // Create two different sections for trickle info
+
+            // Window format as below:
+            // Stat Group
+            //     Stat | Value
+            //    Stat2 | Value
+            // Create two different pages for trickle info
             OutputStrings[0] = $"<a href=\"text://Trickle Results {paramsString}<br>";
             OutputStrings.Add($"<a href=\"text://Trickle Results {paramsString}<br>");
 
-            // Create custom section in gear section for treatment and comp lit
+            // Create custom section in gear window for treatment and comp lit
             bool headerMade = false;
             if(trickleValues.ContainsKey("Combat & Healing"))
             {
@@ -155,6 +162,7 @@
                 {"sense", 0},
             };
         }
+
         static Dictionary<string, Dictionary<string, float>> GetTrickleAmounts(float[] _statValues)
         {
 

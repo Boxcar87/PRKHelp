@@ -2,14 +2,15 @@
 
 namespace PRKHelp
 {
-    public static class Route
+    public static class Router
     {
         static Dictionary<string, Component> Components = new();
         static DB DB;
-        static Route()
+        static Router()
         {
             DB = new DB();
             
+            // Add new script components here
             GameTimers gameTimers = new();
             Components.Add("calc", new Calc());
             Components.Add("oe", new OE());
