@@ -26,7 +26,7 @@ Path settings will persist otherwise
 /items and /item are reserved commands it seems, sorry. Went with /itemfind as a hopefully acceptable substitute. QL is optional.
 
 ### /itemfind (ql) item name
-<img width="462" height="606" alt="{06F933A9-769E-4821-98D4-CAD4E2EC96B3}" src="https://github.com/user-attachments/assets/4077765a-a390-423d-8f0a-165b152594ab" />
+<img width="451" height="686" alt="{B12EEEAD-DC00-497A-A843-ECCFE311ABDF}" src="https://github.com/user-attachments/assets/30976286-7571-46ff-8a09-a76faceb6434" />
 
 ### /calc 1+1
 <img width="199" height="54" alt="{B0E3934B-530F-4BAE-ABFC-6473C3218D79}" src="https://github.com/user-attachments/assets/4e02baae-c48b-4f86-8f5e-7117cae2d381" />
