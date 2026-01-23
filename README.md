@@ -25,16 +25,19 @@ Path settings will persist otherwise
 
 /items and /item are reserved commands it seems, sorry. Went with /itemfind as a hopefully acceptable substitute. QL is optional.
 
+### /trickle stat amount stat amount
+<img width="481" height="633" alt="{948AA090-3D5B-44D0-8276-BAAD71267098}" src="https://github.com/user-attachments/assets/42b4d6a7-c8df-4762-98f8-9dd2a3f06a1e" />
+
 ### /itemfind (ql) item name
 <img width="451" height="686" alt="{B12EEEAD-DC00-497A-A843-ECCFE311ABDF}" src="https://github.com/user-attachments/assets/30976286-7571-46ff-8a09-a76faceb6434" />
 
-### /calc 1+1
+### /calc formula+no*spaces
 <img width="199" height="54" alt="{B0E3934B-530F-4BAE-ABFC-6473C3218D79}" src="https://github.com/user-attachments/assets/4e02baae-c48b-4f86-8f5e-7117cae2d381" />
 
-### /oe 200
+### /oe amount
 <img width="449" height="368" alt="{35E75D43-842B-4CDE-8B53-8CC90F082D61}" src="https://github.com/user-attachments/assets/78d8023b-d9dc-4cf7-a45d-fc3d6d320089" />
 
-### /mafist 400
+### /mafist amount
 <img width="450" height="367" alt="{B474A5BC-3DB7-4CC7-A3A8-2A2505B09CB8}" src="https://github.com/user-attachments/assets/d7023059-d7d9-42b5-9fad-1a5daafedd6c" />
 
 ### /timer Name 1h78m1045s
