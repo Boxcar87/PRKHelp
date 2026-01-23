@@ -80,20 +80,17 @@
             }
             if (trickleValues.ContainsKey("Trade & Repair"))
             {
-                if(!headerMade)
-
-                if (trickleValues["Combat & Healing"].ContainsKey("Comp. Liter"))
+                if (trickleValues["Trade & Repair"].ContainsKey("Comp. Liter"))
                 {
                     if (!headerMade)
                             OutputStrings[0] += $"<br>{HighlightColor}Treatment & Comp. Liter{EndColor}<div align=right>";
                     OutputStrings[0] += $"Comp. Liter | {ValueColor}{(trickleValues["Trade & Repair"]["Comp. Liter"] / 4).ToString("N2")}{EndColor}{superIndent}<br>";
                 }
             }
-
             if (headerMade)
                 OutputStrings[0] += $"</div>";
 
-            // Populate windows accordingly
+            // Populate windows accordingly for all other stats
             foreach (KeyValuePair<string, Dictionary<string, float>> statGroup in trickleValues)
             {
                 int pageIndex = 0;
