@@ -24,6 +24,8 @@ You will have to select a new log file for each new character every time you ope
 Path settings will persist otherwise
 
 /items and /item are reserved commands it seems, sorry. Went with /itemfind as a hopefully acceptable substitute. QL is optional.
+/pb can take a pattern piece as input for search
+
 ### /symbiant and /pb 
 <img width="456" height="604" alt="{01A62B65-CAB8-4B4A-8281-CF790095CE4A}" src="https://github.com/user-attachments/assets/e240b0bd-18f7-4131-be14-ace05bd878b7" />
 
