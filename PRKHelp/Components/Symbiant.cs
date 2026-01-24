@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PRKHelp.Components
 {
@@ -38,9 +39,10 @@ namespace PRKHelp.Components
             foreach((string, AOItem) symbiant in symbiantList)
             {
                 itemIndex++;
-                OutputStrings[index] += $"{BuildItemRef(symbiant.Item2.lowql, symbiant.Item2.highql, symbiant.Item2.lowql, symbiant.Item2.name)} ({ValueColor}{symbiant.Item2.lowql}{EndColor})<br>";
-                OutputStrings[index] += $"{HighlightColor}Found on{EndColor} <a href='chatcmd:///pocketboss {symbiant.Item1}'>{symbiant.Item1}</a><br><br>";
-                if(OutputStrings[index].Length > 3500)
+                OutputStrings[index] += $"{BuildItemRef(symbiant.Item2.lowid, symbiant.Item2.highid, symbiant.Item2.lowql, symbiant.Item2.name)} ({ValueColor}{symbiant.Item2.lowql}{EndColor})<br>";
+                OutputStrings[index] += $"{HighlightColor}Found on{EndColor} <a href='chatcmd:///pocketboss {symbiant.Item1}'>{symbiant.Item1}</a><br>";
+                OutputStrings[index] += $"<a href='chatcmd:///PRKHelp/Itemlink {symbiant.Item2.lowid} {symbiant.Item2.highid} {symbiant.Item2.lowql} {symbiant.Item2.name.Replace(" ","_")}'>Link to chat</a><br><br>";
+                if (OutputStrings[index].Length > 3500)
                 {
                     Debug.WriteLine(OutputStrings[index].Length);
                     index++;
