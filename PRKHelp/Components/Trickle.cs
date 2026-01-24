@@ -97,7 +97,7 @@
             if (headerMade)
                 OutputStrings[0] += $"</div>";
 
-            // Populate windows accordingly for all other stats
+            // Switching between pages for appropriate stats
             foreach (KeyValuePair<string, Dictionary<string, float>> statGroup in trickleValues)
             {
                 int pageIndex = 0;

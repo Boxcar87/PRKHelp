@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace PRKHelp
+﻿namespace PRKHelp
 {
     internal class ScriptManager
     {
@@ -71,6 +69,9 @@ namespace PRKHelp
             File.WriteAllText(Path.Combine(_scriptsFolderPath, "timers"), $"/w !timers\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // No inputs
             File.WriteAllText(Path.Combine(_scriptsFolderPath, "itemfind"), $"/w !itemfind %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // Allows 9 inputs, each input is a word of the item name, first input can be ql
             File.WriteAllText(Path.Combine(_scriptsFolderPath, "trickle"), $"/w !trickle %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // Allows 8 inputs, 9th input is used for error handling
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "symbiant"), $"/w !symbiant %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // Allows 9 inputs,  each input is a word of the item name
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "pb"), $"/w !pocketboss %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // Allows 9 inputs, 5th input could be start of inserted pattern name
+            File.WriteAllText(Path.Combine(_scriptsFolderPath, "pocketboss"), $"/w !pocketboss %1 %2 %3 %4 %5 %6 %7 %8 %9\n/delay {ExecutionDelay}\n/PRKHelp/Output"); // Allows 9 inputs, 5th input could be start of inserted pattern name
         }
     }
 }

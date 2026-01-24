@@ -47,5 +47,11 @@ namespace PRKHelp.Components
             // Route() will return a generic failure if value here is -1.
             return statusCode;
         }
+
+        // Function youhave access to in base class which quickly builds an itemref link
+        //public string BuildItemRef(int _minID, int _maxID, int _QL, string _name)
+        //{
+        //    return $"<a href=\'itemref://{_minID}/{_maxID}/{_QL}\'>{_name}</a>";
+        //}
     }
 }

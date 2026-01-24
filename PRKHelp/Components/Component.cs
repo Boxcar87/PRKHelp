@@ -24,6 +24,7 @@
         {
             if (_params.Length != ParamTypes.Count)
                 return (-1, $"Error. Check your inputs, should match {ParamSyntax}");
+
             for(var i=0; i < _params.Length; i++)
             {
                 // Inputs are basically either string or int

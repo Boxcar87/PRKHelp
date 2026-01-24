@@ -10,11 +10,23 @@
 
   <ItemGroup>
     <None Remove="SQL\Items.sql" />
+    <None Remove="SQL\Playfields.sql" />
+    <None Remove="SQL\Pocketboss.sql" />
+    <None Remove="SQL\Symbiants.sql" />
     <None Remove="SQL\Trickle.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="SQL\Items.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQL\Playfields.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQL\Pocketboss.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQL\Symbiants.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SQL\Trickle.sql">

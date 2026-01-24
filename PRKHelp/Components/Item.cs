@@ -28,15 +28,18 @@
         }
         public override int Process(string[] _params)
         {
+            _params = _params.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
+            for (int i=0; i< _params.Length; i++)
+            {
+                _params[i] = _params[i].Replace("'", "''");
+            }
             
             string name = string.Join(" ", _params);
-            name = name.Trim(' ');
             int ql = 0;
             if (int.TryParse(_params[0], out ql))
                 name = string.Join(" ", _params[1..]);
-            name = name.Replace("'", "''");
 
-            List<AOItem> items = GetItemsByName(name, ql);
+            List<AOItem> items = GetItemsByName(_params, ql);
             if (items.Count == 0)
             {
                 OutputStrings[0] = $"No matching items. Inputs should match {ParamSyntax}";
@@ -82,16 +85,19 @@
             DB.InsertSQLFile(Path.GetDirectoryName(Application.ExecutablePath)+"\\SQL\\Items.sql");
         }
 
-        static List<AOItem> GetItemsByName(string _name, int _ql)
+        static List<AOItem> GetItemsByName(string[] _name, int _ql)
         {
+            string likeString = $"LIKE '%{_name[0]}%'";
+            for (int i=1; i<_name.Length; i++)
+                likeString += $" AND name LIKE '%{_name[i]}%'";
 
-            string query = $"SELECT * FROM Items WHERE name LIKE '%{_name}%'";
+            string query = $"SELECT * FROM Items WHERE name {likeString} ";
             if (_ql > 0)
-                query += $" AND lowql <= {_ql} AND highql >= {_ql}";
+                query += $"AND lowql <= {_ql} AND highql >= {_ql} ";
 
-            query += " ORDER BY name ASC, highql DESC";
+            query += "ORDER BY name ASC, highql DESC";
 
-            return DB.QueryItem(query, _name);
+            return DB.QueryItem(query, String.Join(" ", _name));
         }
     }
 }

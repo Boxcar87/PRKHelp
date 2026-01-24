@@ -11,12 +11,16 @@ namespace PRKHelp
             DB = new DB();
             
             // Add new script components here
+            MA maFist = new MA();
             GameTimers gameTimers = new();
             Components.Add("calc", new Calc());
             Components.Add("oe", new OE());
-            Components.Add("mafist", new MA());
+            Components.Add("mafist", maFist);
+            Components.Add("ma", maFist);
             Components.Add("itemfind", new Item(DB));
             Components.Add("trickle", new Trickle(DB));
+            Components.Add("symbiant", new Symbiant(DB));
+            Components.Add("pocketboss", new PB(DB));
             Components.Add("timer", gameTimers);
             Components.Add("timers", gameTimers);
         }
