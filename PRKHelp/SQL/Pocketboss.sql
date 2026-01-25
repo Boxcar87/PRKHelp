@@ -128,3 +128,7 @@ INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUE
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (126, 'Sasabonsam', 4605, 'Anansi''s Disciple', 220, 'Dark Hills - SE from 255 incarnator');
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (127, 'Circumbendibum', 4542, 'Named Dryads', 80, 'Southmire');
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (128, 'Agent of Decay', 4605, 'Eremites East from Hebiel & Ahomac', 255, 'Near 225 Incarnator (Eremites)');
+INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (129, 'Sawi', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
+INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (130, 'Mawi', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
+INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (131, 'Wala', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
+);

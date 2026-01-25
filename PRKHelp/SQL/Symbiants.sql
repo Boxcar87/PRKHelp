@@ -615,3 +615,6 @@ INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (12
 INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (127, 'Extermination', 'Brain', 'Vibrating', 235855);
 INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (127, 'Infantry', 'Feet', 'Vibrating', 235822);
 INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (128, 'Extermination', 'Ocular', 'Alert', 235847);
+INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (129, 'Control', 'Ocular', 'Lulled', 236288);
+INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (129, 'Support', 'Thigh', 'Lulled', 236241);
+INSERT INTO Symbiants (pocketboss_id, symb_type, slot, line, item_id) VALUES (129, 'Artillery', 'Left Wrist', 'Lulled', 235534);
