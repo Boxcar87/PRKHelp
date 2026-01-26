@@ -67,8 +67,8 @@
                 pageItem++;
 
                 OutputStrings[page] += $"<img src=rdb://{item.icon}><br>";
-                OutputStrings[page] += $"{item.name} {BuildItemRef(item.lowid, item.highid, localQl, localQl.ToString())} [{BuildItemRef(item.lowid, item.highid, item.lowql, item.lowql.ToString())} - {BuildItemRef(item.lowid, item.highid, item.highql, item.highql.ToString())}]<br>";
-                OutputStrings[page] += $"<a href='chatcmd:///PRKHelp/Itemlink {item.lowid} {item.highid} {localQl} {cleanName}'>Link to chat - QL {localQl}</a><br><br>";
+                OutputStrings[page] += $"{BuildItemRef(item.lowid, item.highid, localQl, item.name)} [{localQl}] [{BuildItemRef(item.lowid, item.highid, item.lowql, item.lowql.ToString())} - {BuildItemRef(item.lowid, item.highid, item.highql, item.highql.ToString())}]<br>";
+                OutputStrings[page] += $"Link to chat - QL {localQl} <a href='chatcmd:///PRKHelp/Itemlink {item.lowid} {item.highid} {localQl} {cleanName}'>[->]</a><br><br>";
                 
                 if (OutputStrings[page].Length > 3500)
                 {

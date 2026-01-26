@@ -131,4 +131,3 @@ INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUE
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (129, 'Sawi', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (130, 'Mawi', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
 INSERT INTO Pocketboss (id, name, playfield_id, mob_type, level, location) VALUES (131, 'Wala', 4312, 'Spinetooths and Named', 50, 'The Wetlands');
-);

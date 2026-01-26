@@ -133,24 +133,31 @@ namespace PRKHelp
         public static List<PocketBoss> QueryPocketBoss(string _query)
         {
             List<PocketBoss> pocketBosses = [];
-            using (var command = new SqliteCommand(_query, Connection))
+            try
             {
-                using (var reader = command.ExecuteReader())
+                using (var command = new SqliteCommand(_query, Connection))
                 {
-                    while (reader.Read())
+                    using (var reader = command.ExecuteReader())
                     {
-                        PocketBoss boss = new()
+                        while (reader.Read())
                         {
-                            ID = reader.GetInt32(reader.GetOrdinal("id")),
-                            name = reader.GetString(reader.GetOrdinal("name")),
-                            playfield = reader.GetString(reader.GetOrdinal("long_name")),
-                            mobType = reader.GetString(reader.GetOrdinal("mob_type")),
-                            level = reader.GetInt32(reader.GetOrdinal("level")),
-                            location = reader.GetString(reader.GetOrdinal("location"))
-                        };
-                        pocketBosses.Add(boss);
+                            PocketBoss boss = new()
+                            {
+                                ID = reader.GetInt32(reader.GetOrdinal("id")),
+                                name = reader.GetString(reader.GetOrdinal("name")),
+                                playfield = reader.GetString(reader.GetOrdinal("long_name")),
+                                mobType = reader.GetString(reader.GetOrdinal("mob_type")),
+                                level = reader.GetInt32(reader.GetOrdinal("level")),
+                                location = reader.GetString(reader.GetOrdinal("location"))
+                            };
+                            pocketBosses.Add(boss);
+                        }
                     }
                 }
+            }
+            catch (Microsoft.Data.Sqlite.SqliteException _ex)
+            {
+                Debug.WriteLine(_ex);
             }
             return pocketBosses;
         }
@@ -158,23 +165,30 @@ namespace PRKHelp
         public static List<AOItem> QuerySymbiantsByPocketBoss(string _query)
         {
             List<AOItem> symbiants = [];
-            using (var command = new SqliteCommand(_query, Connection))
+            try
             {
-                using (var reader = command.ExecuteReader())
+                using (var command = new SqliteCommand(_query, Connection))
                 {
-                    while (reader.Read())
+                    using (var reader = command.ExecuteReader())
                     {
-                        AOItem item = new()
+                        while (reader.Read())
                         {
-                            lowid = reader.GetInt32(reader.GetOrdinal("lowid")),
-                            highid = reader.GetInt32(reader.GetOrdinal("highid")),
-                            lowql = reader.GetInt32(reader.GetOrdinal("lowql")),
-                            name = reader.GetString(reader.GetOrdinal("name")),
-                        };
-                        item.name = item.name.Replace("\"", "\\\"");
-                        symbiants.Add(item);
+                            AOItem item = new()
+                            {
+                                lowid = reader.GetInt32(reader.GetOrdinal("lowid")),
+                                highid = reader.GetInt32(reader.GetOrdinal("highid")),
+                                lowql = reader.GetInt32(reader.GetOrdinal("lowql")),
+                                name = reader.GetString(reader.GetOrdinal("name")),
+                            };
+                            item.name = item.name.Replace("\"", "\\\"");
+                            symbiants.Add(item);
+                        }
                     }
                 }
+            }
+            catch (Microsoft.Data.Sqlite.SqliteException _ex)
+            {
+                Debug.WriteLine(_ex);
             }
             return symbiants;
         }

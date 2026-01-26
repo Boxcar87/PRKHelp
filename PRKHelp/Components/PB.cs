@@ -1,4 +1,6 @@
-﻿namespace PRKHelp.Components
+﻿using System.Diagnostics;
+
+namespace PRKHelp.Components
 {
     public class PocketBoss
     {
@@ -27,6 +29,8 @@
 
         public override int Process(string[] _params)
         {
+            bool exactMatch = false;
+
             _params = _params.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
             // Pattern was linked in command
             if (_params[0] == "<a")
@@ -56,8 +60,26 @@
             }
             for (var i = 0; i < _params.Length; i++)
                 _params[i] = _params[i].Replace("'", "");
+            // If the name has been changed to fit in one parameter
+            if (_params.Length == 1)
+            {
+                // and it is sent to be processed as a chatlink
+                if (_params[0][0].ToString() == "_")
+                {
+                    _params[0] = _params[0].Replace("_", " ");
+                    _params[0] = _params[0][1..];
+                    ChannelOverride = "";
+                    exactMatch = true;
+                }
+                if (_params[0][0].ToString() == "-")
+                {
+                    _params[0] = _params[0].Replace("_", " ");
+                    _params[0] = _params[0][1..];
+                    exactMatch = true;
+                }
+            }
 
-            List<PocketBoss> pocketBosses = GetPocketBoss(_params);
+            List<PocketBoss> pocketBosses = GetPocketBoss(_params, exactMatch);
 
             if (pocketBosses.Count < 1)
             {
@@ -71,7 +93,7 @@
                 OutputStrings[0] = $"<a href=\"text://Pocket Boss Search Results ({ValueColor}{pocketBosses.Count}{EndColor})<br><br>";
                 foreach(PocketBoss boss in pocketBosses)
                 {
-                    OutputStrings[0] += $"{Indent}<a href='chatcmd:///pocketboss {boss.name}'>{boss.name}</a><br>";
+                    OutputStrings[0] += $"{Indent}<a href='chatcmd:///pocketboss -{boss.name.Replace(" ", "_")}'>{boss.name}</a><br>";
                 }
                 OutputStrings[0] += $"\">Pocket Boss Search Results ({pocketBosses.Count})</a>";
 
@@ -89,6 +111,7 @@
             {
                 OutputStrings[0] += $"{BuildItemRef(symbiant.lowid, symbiant.highid, symbiant.lowql, symbiant.name)} ({ValueColor}{symbiant.lowql}{EndColor})<br>";
             }
+            OutputStrings[0] += $"Link boss remains to chat <a href='chatcmd:///pocketboss _{pocketBoss.name.Replace(" ","_")}'>[->]</a>";
             OutputStrings[0] += $"\">Remains of {pocketBoss.name}</a>";
             return 1;
         }
@@ -108,14 +131,18 @@
             return DB.QuerySymbiantsByPocketBoss(query);
         }
 
-        static List<PocketBoss> GetPocketBoss(string[] _name)
+        static List<PocketBoss> GetPocketBoss(string[] _name, bool _exact)
         {
-            string likeString = $"LIKE '%{_name[0]}%'";
+            string name = string.Join(" ", _name);
+            string likeString = $"name LIKE '%{_name[0]}%'";
             for (int i = 1; i < _name.Length; i++)
                 likeString += $" AND name LIKE '%{_name[i]}%'";
 
+            if (_exact)
+                likeString = $"name = '{name}'";
+
             string query = $"SELECT p1.*, p2.long_name FROM Pocketboss p1 LEFT JOIN Playfields p2 ON p1.playfield_id = p2.id " +
-                            $"WHERE name {likeString} ORDER BY name ASC";
+                            $"WHERE {likeString} ORDER BY name ASC";
 
             return DB.QueryPocketBoss(query);
         }

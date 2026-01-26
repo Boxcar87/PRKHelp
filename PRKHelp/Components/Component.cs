@@ -12,6 +12,8 @@
         public string EndColor = "</font>";
         public string Indent = "   ";
 
+        public string ChannelOverride = null;
+
         public List<string> OutputStrings = [];
 
         public Component()
@@ -49,7 +51,7 @@
             return 1;
         }
 
-        public virtual List<string> GetResult()
+        public virtual (List<string>, string) GetResult()
         {
             List<string> outputStrings = [];
             foreach(string output in OutputStrings)
@@ -58,7 +60,7 @@
             }
             OutputStrings.Clear();
             OutputStrings.Add("");
-            return outputStrings;
+            return (outputStrings, ChannelOverride);
         }
 
         public string BuildItemRef(int _minID, int _maxID, int _QL, string _name)

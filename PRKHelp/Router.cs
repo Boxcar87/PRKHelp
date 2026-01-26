@@ -33,6 +33,7 @@ namespace PRKHelp
                 parameters = sectioned[1..];
 
             List<string> outputStrings = [];
+            string channelOverride = null;
             if (Components.ContainsKey(path))
             {
                 (int validStatus, string validMessage) = Components[path].ValidateParams(parameters);
@@ -47,13 +48,15 @@ namespace PRKHelp
                     if (processStatus < 0)
                         outputStrings.Add($"Error processing inputs."); 
                     else
-                        outputStrings = Components[path].GetResult();
+                        (outputStrings, channelOverride) = Components[path].GetResult();
                 }
             }
             else
                 outputStrings.Add($"{_input} is not a valid command.");
-
-            ScriptManager.WriteOutput(outputStrings);
+            if(channelOverride != null) 
+                ScriptManager.WriteOutput(outputStrings, channelOverride);
+            else
+                ScriptManager.WriteOutput(outputStrings);
         }
     }
 }

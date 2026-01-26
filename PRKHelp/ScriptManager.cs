@@ -18,12 +18,20 @@
 
             Directory.CreateDirectory(Path.Combine(_scriptsFolderPath, "PRKHelp"));
             ScriptOutputFile = Path.Combine(_scriptsFolderPath, "PRKHelp/Output");
-            // Generate Script file if it doesnt exist
+            // Generate script file if it doesnt exist
             using (FileStream scriptStream = new(ScriptOutputFile, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite)) { }
-            // Generate Chat link file
+            // Generate chat item link file
             using (FileStream itemLinkStream = new(Path.Combine(_scriptsFolderPath, "PRKHelp/Itemlink"), FileMode.Create, FileAccess.Write, FileShare.Write))
             {
                 using(StreamWriter linkWriter = new(itemLinkStream))
+                {
+                    linkWriter.Write($"<a href=\"itemref://%1/%2/%3\">%4</a>");
+                }
+            }
+            // Generate chat pb link file
+            using (FileStream itemLinkStream = new(Path.Combine(_scriptsFolderPath, "PRKHelp/Itemlink"), FileMode.Create, FileAccess.Write, FileShare.Write))
+            {
+                using (StreamWriter linkWriter = new(itemLinkStream))
                 {
                     linkWriter.Write($"<a href=\"itemref://%1/%2/%3\">%4</a>");
                 }
@@ -34,7 +42,7 @@
 
         // Supports paginated output.
         // Each element in _output should be a new page.
-        public static void WriteOutput(List<string> _output)
+        public static void WriteOutput(List<string> _output, string _channel="/text ")
         {
             for (var i = 0; i < _output.Count; i++)
             {
@@ -46,7 +54,7 @@
                 {
                     using (StreamWriter scriptWriter = new(scriptStream))
                     {
-                        scriptWriter.Write($"/text {_output[i]}");
+                        scriptWriter.Write($"{_channel}{_output[i]}");
                         
                         // Create new page references as needed
                         if(_output.Count > 1 && _output.Count > i + 1)
