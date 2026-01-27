@@ -33451,6 +33451,11 @@ INSERT INTO Items VALUES (500027, 500027, 1, 1, 'Cries from the Aether', 113990)
 INSERT INTO Items VALUES (500028, 500028, 1, 1, 'Bow of Forsaken Reveriese', 233216);
 INSERT INTO Items VALUES (500021, 500021, 1, 1, 'Arm of the Disciple', 113997);
 INSERT INTO Items VALUES (500025, 500025, 1, 1, 'Absolution Hammer', 33167);
+INSERT INTO Items VALUES (500107, 500107, 200, 200, 'Perfected Immortal Katana', 154506);
+INSERT INTO Items VALUES (500108, 500108, 68, 68, 'Beta Ejector', 31807);
+INSERT INTO Items VALUES (500109, 500109, 68, 68, 'Fusion Ejector', 31807);
+INSERT INTO Items VALUES (500110, 500110, 1, 1, 'Ionization Cannon', 233219);
+INSERT INTO Items VALUES (500111, 500111, 100, 100, 'Omni-Med Scalpel', 40783);
 INSERT INTO Items VALUES (500015, 500015, 1, 1, 'Sentient Targeting Goggles', 500015);
 INSERT INTO Items VALUES (500038, 500038, 50, 50, 'Fury''s Blaze - Special Arrows', 500052);
 INSERT INTO Items VALUES (500039, 500039, 50, 50, 'Engulfing Void - Special Arrows', 500053);
