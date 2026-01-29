@@ -351,13 +351,14 @@ namespace PRKHelp
             xpAmount.BorderStyle = BorderStyle.None;
             xpAmount.Font = new Font("Verdana", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             xpAmount.ForeColor = Color.Yellow;
-            xpAmount.Location = new Point(25, 148);
+            xpAmount.Location = new Point(4, 148);
             xpAmount.Name = "xpAmount";
             xpAmount.ReadOnly = true;
             xpAmount.RightToLeft = RightToLeft.Yes;
-            xpAmount.Size = new Size(69, 29);
+            xpAmount.Size = new Size(90, 29);
             xpAmount.TabIndex = 12;
-            xpAmount.Text = "430K";
+            xpAmount.Text = "888.68M";
+            xpAmount.TextChanged += xpAmount_TextChanged;
             // 
             // damageAmount
             // 

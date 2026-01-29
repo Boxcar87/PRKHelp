@@ -238,5 +238,10 @@ namespace PRKHelp
             damageToggle.Text = "Start";
             damageToggle.ForeColor = Color.MediumSpringGreen;
         }
+
+        private void xpAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -198,6 +198,7 @@ namespace PRKHelper.Parser
             XPField.Text = "0";
             XPPausedTime = 0;
             TrackXPBool = false;
+            LastReadLine = 1;
             using (FileStream fileStream = new(LogPath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) { }
         }
 
@@ -209,6 +210,7 @@ namespace PRKHelper.Parser
             DamageField.Text = "0";
             DamagePausedTime = 0;
             TrackXPBool = false;
+            LastReadLine = 1;
             using (FileStream fileStream = new(LogPath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) { }
         }
 
@@ -222,11 +224,11 @@ namespace PRKHelper.Parser
             switch (_xp)
             {
                 case > 1000000:
-                    return ((float)_xp / 1000000f).ToString("N2")+"M";
+                    return ((float)_xp / 1000000f).ToString("N1")+"M";
                 case > 50000:
-                    return ((float)_xp / 1000f).ToString("N2")+"K";
+                    return (_xp / 1000).ToString()+"K";
                 case > 1000:
-                    return (_xp / 1000).ToString("N2")+"K";
+                    return ((float)_xp / 1000f).ToString("N1")+"K";
                 default:
                     return _xp.ToString();
             }
