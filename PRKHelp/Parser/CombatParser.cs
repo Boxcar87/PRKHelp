@@ -138,6 +138,7 @@ namespace PRKHelper.Parser
                                             XPStartTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
                                         TotalXP += (int)(NewPoolXP - LastPooledXP);
+                                        LastPooledXP = NewPoolXP;
                                     }
                                 }
                             }
@@ -209,7 +210,7 @@ namespace PRKHelper.Parser
             DamageEndTime = 0;
             DamageField.Text = "0";
             DamagePausedTime = 0;
-            TrackXPBool = false;
+            TrackDamageBool = false;
             LastReadLine = 1;
             using (FileStream fileStream = new(LogPath, FileMode.Truncate, FileAccess.ReadWrite, FileShare.ReadWrite)) { }
         }

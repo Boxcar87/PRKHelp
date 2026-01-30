@@ -355,6 +355,7 @@ namespace PRKHelp
             xpAmount.Name = "xpAmount";
             xpAmount.ReadOnly = true;
             xpAmount.RightToLeft = RightToLeft.Yes;
+            xpAmount.ScrollBars = RichTextBoxScrollBars.None;
             xpAmount.Size = new Size(90, 29);
             xpAmount.TabIndex = 12;
             xpAmount.Text = "888.68M";
@@ -370,6 +371,7 @@ namespace PRKHelp
             damageAmount.Name = "damageAmount";
             damageAmount.ReadOnly = true;
             damageAmount.RightToLeft = RightToLeft.Yes;
+            damageAmount.ScrollBars = RichTextBoxScrollBars.None;
             damageAmount.Size = new Size(97, 29);
             damageAmount.TabIndex = 11;
             damageAmount.Text = "444,444";
@@ -421,6 +423,7 @@ namespace PRKHelp
             ClientSize = new Size(329, 341);
             Controls.Add(activeWindow);
             Controls.Add(settingsBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormUI";
             Text = "PRKHelp";
             settingsBox.ResumeLayout(false);
